@@ -316,9 +316,8 @@ function fixPathsAfterParentMove(renamedEvents, event) {
   }
 }
 
-function eventUpdateTime(event) {
-  const { ctime, mtime } = event.stats
-  return Math.max(ctime.getTime(), mtime.getTime())
+function contentUpdateTime(event) {
+  return event.stats.mtime.getTime()
 }
 
 function docUpdateTime(was) {
@@ -330,7 +329,7 @@ function foundUntouchedFile(event, was) /*: boolean %checks */ {
     was != null &&
     was.md5sum != null &&
     event.kind === 'file' &&
-    eventUpdateTime(event) === docUpdateTime(was)
+    contentUpdateTime(event) <= docUpdateTime(was)
   )
 }
 
