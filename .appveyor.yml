@@ -1,13 +1,11 @@
 image: Visual Studio 2017
 
-platform:
-  - x64
-
 clone_depth: 10
 
 environment:
   MOCHA_TIMEOUT: "60000"
   NO_BREAKPOINTS: "1"
+  nodejs_version: 12.4.0
   matrix:
       - BUILD_JOB: "short_tests"
       - BUILD_JOB: "scenarios_build"
