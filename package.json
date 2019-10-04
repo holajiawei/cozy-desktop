@@ -157,6 +157,7 @@
   "resolutions": {
     "dtrace-provider": "0.8.8",
     "fsevents": "https://github.com/Redocly/fsevents.git#fix/pthread_cond_wait-race-condition",
+    "leveldown": "5.0.2",
     "levelup": "4.0.2",
     "node-abi": "2.11.0"
   }
