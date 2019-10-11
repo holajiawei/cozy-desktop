@@ -151,10 +151,12 @@
     "stylus": "^0.54.5"
   },
   "optionalDependencies": {
-    "@gyselroth/windows-fsstat": "^0.0.7"
+    "@gyselroth/windows-fsstat": "^0.0.7",
+    "fsevents": "https://github.com/Redocly/fsevents.git#fix/pthread_cond_wait-race-condition"
   },
   "resolutions": {
     "dtrace-provider": "0.8.8",
+    "fsevents": "https://github.com/Redocly/fsevents.git#fix/pthread_cond_wait-race-condition",
     "levelup": "4.0.2",
     "node-abi": "2.11.0"
   }
