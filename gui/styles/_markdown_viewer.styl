@@ -2,6 +2,7 @@ black = #000
 chablis = #fff2f2
 charcoalGrey = #32363f
 coolGrey = #95999d
+paleGrey = #f5f6f7
 pomegranate = #f52d2d
 
 bannerHeight = 6rem
@@ -11,7 +12,6 @@ bannerHeight = 6rem
   width: 100%
   min-height: bannerHeight
   padding: 1rem 1.5rem
-  background-color: chablis
   color: black
   font-size: 1rem
   line-height: 1.5
@@ -29,19 +29,24 @@ bannerHeight = 6rem
 @css {
   .banner {
     box-sizing: border-box;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(50, 54, 63, 0.08);
   }
 }
 
 .banner__main
   padding-left: 2rem
-  color: pomegranate
 
   &:before
-    content: '\2755'
     position: absolute
     left: 1rem
     font-size: 2rem
     line-height: 1
+
+    .banner--error &
+      content: '\2755'
+
+    .banner--info &
+      content: '\2754'
 
 .banner__main-title
   display: block
@@ -57,6 +62,18 @@ bannerHeight = 6rem
   margin: .5rem 0
   line-height: 1
   color: charcoalGrey
+
+.banner--error
+  background-color: chablis
+
+  .banner__main
+    color: pomegranate
+
+.banner--info
+  background-color: paleGrey
+
+  .banner__main
+    color: charcoalGrey
 
 .banner__close
   position: fixed

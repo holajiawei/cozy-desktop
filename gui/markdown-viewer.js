@@ -18,9 +18,11 @@ class Banner extends React.Component {
   }
 
   render() {
-    const { translate, title, details } = this.props
+    const { translate, level, title, details } = this.props
     const { closed } = this.state
-    const className = closed ? 'banner banner--closed' : 'banner'
+    const className = closed
+      ? `banner banner--${level} banner--closed`
+      : `banner banner--${level}`
 
     return e('div', { className }, [
       e('div', { className: 'banner__main' }, [
