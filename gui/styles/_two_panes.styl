@@ -1,3 +1,5 @@
+@require './node_modules/cozy-ui/stylus/components/tabs.styl'
+@require './node_modules/cozy-ui/stylus/settings/icons.styl'
 @require '_spin'
 
 .container
@@ -83,7 +85,9 @@
       vertical-align: middle
 
     .spin
-      @extend $icon-spinner-blue
+      @extend $icon-spin
+      background-image  embedurl('./node_modules/cozy-ui/assets/icons/ui/spinner.svg')
+      fill: var(--primaryColor)
       display: inline-block
       width: 1em
       height: 1em
