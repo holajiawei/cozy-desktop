@@ -1,11 +1,12 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 const ReactMarkdown = require('react-markdown')
+const PropTypes = require('prop-types')
 const e = React.createElement
 
 class Banner extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       closed: false
     }
@@ -45,18 +46,22 @@ class Banner extends React.Component {
     ])
   }
 }
+Banner.propTypes = {
+  translate: PropTypes.func.isRequired,
+  level: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  details: PropTypes.string.isRequired
+}
 
-class MarkdownViewer extends React.Component {
-  render() {
-    const { content: source, filename } = this.props
+const MarkdownViewer = props => {
+  const { content: source, filename } = props
 
-    return e('div', { className: 'markdown-viewer' }, [
-      e('header', { className: 'markdown-viewer__filename' }, [
-        e('h1', null, filename)
-      ]),
-      e(ReactMarkdown, { source }, null)
-    ])
-  }
+  return e('div', { className: 'markdown-viewer' }, [
+    e('header', { className: 'markdown-viewer__filename' }, [
+      e('h1', null, filename)
+    ]),
+    e(ReactMarkdown, { source }, null)
+  ])
 }
 
 require('electron').ipcRenderer.on(
